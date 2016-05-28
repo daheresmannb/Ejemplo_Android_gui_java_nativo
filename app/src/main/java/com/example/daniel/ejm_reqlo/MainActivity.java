@@ -80,22 +80,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
             contenedor.setGravity(Gravity.CENTER);
             contenedor.setBackgroundColor(Color.TRANSPARENT); // en caso de no poner imagen puedes transparencia o algun color
             //////////////////////////// boton ////////////////////////////////////////////////////
-            estados_boton = new StateListDrawable();
+            estados_boton = new StateListDrawable(); // se crea un objeto StateListDrawable para agregar dos estados al boton // estado presionado y estado normal
             estados_boton.addState(
                     new int[]{
                             android.R.attr.state_pressed
                     },
                     getResources().getDrawable(
-                            R.mipmap.botones_inicio_0000_inicio_sesion_on
+                            R.mipmap.botones_inicio_0000_inicio_sesion_on  /// imagen para el estado presionado
                     )
             );
             estados_boton.addState(
                     new int[]{},
                     getResources().getDrawable(
-                            R.mipmap.botones_inicio_0001_inicio_sesion_off
+                            R.mipmap.botones_inicio_0001_inicio_sesion_off /// imagen para el estado NO presionado
                     )
             );
-            ////////////////////////////////////////////////////////////////////////////////////
+
             miboton.setBackgroundDrawable(estados_boton);
             miboton.setOnClickListener(this);
             miboton.setId(1); // se le asigna un id para utilizarlo en el metodo onclik()
