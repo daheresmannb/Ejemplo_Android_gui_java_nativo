@@ -44,15 +44,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
             AppEventsLogger.activateApp(this);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // bloquea giro de pantalla
             DisplayMetrics met = getResources().getDisplayMetrics(); // obtiene dimenciones de la pantalla
-
             ///////////////////////// inicializar layouts y elementos /////////////////////////////////////
             contenedor = new LinearLayout(this);
             layout_text = new LinearLayout(this);
             layout_botones = new LinearLayout(this);
             mitexto = new TextView(this);
             miboton = new Button(this);
-            LoginButton g ;
-
             //////////////////////////////////////////////////////////////////////////////////
             //////////////////////////// parametros layout /////////////////////////////////////////////////////
             parametros_Lcontenedor = new ViewGroup.LayoutParams(
