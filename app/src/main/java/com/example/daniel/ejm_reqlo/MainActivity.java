@@ -40,8 +40,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            FacebookSdk.sdkInitialize(getApplicationContext());
-            AppEventsLogger.activateApp(this);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // bloquea giro de pantalla
             DisplayMetrics met = getResources().getDisplayMetrics(); // obtiene dimenciones de la pantalla
             ///////////////////////// inicializar layouts y elementos /////////////////////////////////////
