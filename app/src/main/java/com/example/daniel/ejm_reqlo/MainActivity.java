@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.StateListDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -16,10 +15,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.widget.LoginButton;
 
 /**
  * Created by Daniel on 01-04-2016.
@@ -49,33 +44,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
             mitexto = new TextView(this);
             miboton = new Button(this);
             //////////////////////////////////////////////////////////////////////////////////
-            //////////////////////////// parametros layout /////////////////////////////////////////////////////
-            parametros_Lcontenedor = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT se usa para q el layout use todo el ancho de la pantalla
-                    ViewGroup.LayoutParams.MATCH_PARENT // alto
-            );
-
-            parametros_Layouttext = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT se usa para q el layout use todo el ancho de la pantalla
-                    (met.heightPixels * 50) / 100 // alto, en este caso utilizara el 50% de la pantalla
-            );
-            parametros_Layoutboton =  new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT se usa para q el layout use todo el ancho de la pantalla
-                    (met.heightPixels * 50) / 100 // alto, en este caso utilizara el 50% de la pantalla
-            );
-            //////////////////////////// fin parametros layout /////////////////////////////////////////////////////
-            //////////////////////////// parametros elementos /////////////////////////////////////////////////////
-
-            parametros_boton = new ViewGroup.LayoutParams( // al darle sus propios parametros al botos se adapta a los parametros del layout
-                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT usa todo el ancho hasta las separacion permitida del layout q esta mas abajo
-                    ViewGroup.LayoutParams.WRAP_CONTENT  // alto, WRAP_CONTENT utiliza el alto que se le asigne manualmente
-            );
-
-            parametros_boton.height = (met.heightPixels * 10) / 100; // ancho de boton al 10% de la pantalla
-            miboton.setLayoutParams(parametros_boton);
-
-
-            //////////////////////////// tamaño y separacion elementos  ///////////////////////////////////////
             layout_text.setPadding( // setpadding se utiliza para la separacion de los elementos q estan dentro del layout, los los extremos del layout
                     // esto permite modificar el tamaño de los elementos q se encuentran dentro
                     (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 0, met), // izquierda
@@ -94,11 +62,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
             //  (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 0, met) redimenciona una cierta medida con respecto
             // a las dimenciones de pantalla para cada celular
             //////////////////////////// fin tamaño y separacion elementos  /////////////////////////////////
-            //////////////////////////// setiar parametros layouts ////////////////////////////////////
-            contenedor.setLayoutParams(parametros_Lcontenedor);
-            layout_text.setLayoutParams(parametros_Layouttext);
-            layout_botones.setLayoutParams(parametros_Layoutboton);
-            layout_botones.setBackgroundColor(Color.TRANSPARENT);
             ////////////////////////////////////////////////////////////////////////////////////////////////
             contenedor.setOrientation(LinearLayout.VERTICAL); // hace q los elementos q se agreguen se ubiquen uno debajo del otro
             contenedor.setGravity(Gravity.CENTER);
@@ -119,20 +82,39 @@ public class MainActivity extends Activity implements View.OnClickListener{
                             R.mipmap.botones_inicio_0001_inicio_sesion_off
                     )
             );
+            ////////////////////////////////////////////////////////////////////////////////////
             miboton.setBackgroundDrawable(estados_boton);
             miboton.setOnClickListener(this);
             miboton.setId(1); // se le asigna un id para utilizarlo en el metodo onclik()
+            ///////////////////////////////////////////////////////////////////////////////////
             mitexto.setText("chupenla los qlos");
             mitexto.setTextSize(40);
             mitexto.setBackgroundColor(Color.GREEN); // subrayo de verde el texto
+
             layout_text.setGravity(Gravity.CENTER);
             miboton.setGravity(Gravity.CENTER); // gravity sirve para la  ubicacion del elemento dentro del layout
-            contenedor.setBackgroundDrawable(getResources().getDrawable(R.mipmap.fondop)); // la asignacion de imagen deber despues de todo xq sino no toma
+            contenedor.setBackgroundDrawable(getResources().getDrawable(R.mipmap.fondop)); // la asignacion de imagen
             //////////////////////////////////////////////////////////////////////////////
-            layout_text.addView(mitexto);
-            layout_botones.addView(miboton);
-            contenedor.addView(layout_text);
-            contenedor.addView(layout_botones);
+            layout_text.addView(
+                    mitexto,
+                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT se usa para q el layout use todo el ancho de la pantalla
+                    (met.heightPixels * 50) / 100 // alto, en este caso utilizara el 50% de la pantalla
+            );
+            layout_botones.addView(
+                    miboton,
+                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT usa todo el ancho hasta las separacion permitida del layout q esta mas abajo
+                    ViewGroup.LayoutParams.WRAP_CONTENT  // alto, WRAP_CONTENT utiliza el alto que se le asigne manualmente
+            );
+            contenedor.addView(
+                    layout_text,
+                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT se usa para q el layout use todo el ancho de la pantalla
+                    (met.heightPixels * 50) / 100 // alto, en este caso utilizara el 50% de la pantalla
+            );
+            contenedor.addView(
+                    layout_botones,
+                    ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT se usa para q el layout use todo el ancho de la pantalla
+                    (met.heightPixels * 50) / 100 // alto, en este caso utilizara el 50% de la pantalla
+            );
             setContentView(contenedor);
         }
 
