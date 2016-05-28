@@ -59,6 +59,19 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 25, met), // derecha
                     (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 0, met)  // al principio
             );
+
+            /**
+              si no funciona  eso hacer lo siguiente
+
+            layout_botones.setPadding(
+                    met.widthPixels * 10 / 100,  // izquierda // esto dara el 10% del ancho de la pantalla
+                    met.heightPixels * 25, // al final
+                    met.widthPixels * 10 / 100, // derecha
+                    met.heightPixels * 1 / 100  // al principio
+             );
+
+             **/
+
             //  (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 0, met) redimenciona una cierta medida con respecto
             // a las dimenciones de pantalla para cada celular
             //////////////////////////// fin tamaño y separacion elementos  /////////////////////////////////
