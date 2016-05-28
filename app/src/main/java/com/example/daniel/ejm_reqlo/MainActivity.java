@@ -89,7 +89,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
             ///////////////////////////////////////////////////////////////////////////////////
             mitexto.setText("chupenla los qlos");
             mitexto.setTextSize(40);
-            mitexto.setBackgroundColor(Color.TRANSPARENT); // subrayo de verde el texto
+            mitexto.setBackgroundColor(Color.TRANSPARENT); // subrayo de verde el textoo
 
             layout_text.setGravity(Gravity.CENTER_HORIZONTAL);
             miboton.setGravity(Gravity.CENTER); // gravity sirve para la  ubicacion del elemento dentro del layout
