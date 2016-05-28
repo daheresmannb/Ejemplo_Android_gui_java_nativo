@@ -96,7 +96,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     )
             );
 
-            miboton.setBackgroundDrawable(estados_boton);
+            miboton.setBackgroundDrawable(estados_boton); // y se agregan los estados al boton
             miboton.setOnClickListener(this);
             miboton.setId(1); // se le asigna un id para utilizarlo en el metodo onclik()
             ///////////////////////////////////////////////////////////////////////////////////
