@@ -89,9 +89,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
             ///////////////////////////////////////////////////////////////////////////////////
             mitexto.setText("chupenla los qlos");
             mitexto.setTextSize(40);
-            mitexto.setBackgroundColor(Color.GREEN); // subrayo de verde el texto
+            mitexto.setBackgroundColor(Color.TRANSPARENT); // subrayo de verde el texto
 
-            layout_text.setGravity(Gravity.CENTER);
+            layout_text.setGravity(Gravity.CENTER_HORIZONTAL);
             miboton.setGravity(Gravity.CENTER); // gravity sirve para la  ubicacion del elemento dentro del layout
             contenedor.setBackgroundDrawable(getResources().getDrawable(R.mipmap.fondop)); // la asignacion de imagen
             //////////////////////////////////////////////////////////////////////////////
@@ -100,6 +100,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT se usa para q el layout use todo el ancho de la pantalla
                     (met.heightPixels * 50) / 100 // alto, en este caso utilizara el 50% de la pantalla
             );
+            layout_text.setGravity(Gravity.CENTER);
             layout_botones.addView(
                     miboton,
                     ViewGroup.LayoutParams.MATCH_PARENT, // ancho, MATCH_PARENT usa todo el ancho hasta las separacion permitida del layout q esta mas abajo
